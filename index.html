@@ -1,26 +1,64 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <head>
     <title>Simon Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Changa+One" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="main.css">
   </head>
   <body>
     <div class="container">
       <div class="game-container">
-        <h4 class="player-turn"></h4>
-        <h5 class="player-selection"></h5>
-        <div data-key="1" class="game-square red"></div>
-        <div data-key="2" class="game-square yellow"></div>
-        <div data-key="3" class="game-square blue"></div>
-        <div data-key="4" class="game-square green"></div>
-      </div>
-      <div class="button-container">
-        <button type="button" class="finishTurn">Finish Turn</button>
+        <div class="outercircle">
+          <!-- Game Buttons -->
+          <div data-key="1" class="top left game-square green"></div>
+          <div data-key="2" class="top right game-square red"></div>
+          <div data-key="3" class="bottom left game-square yellow"></div>
+          <div data-key="4" class="bottom right game-square blue"></div>
+          <!-- End Game Buttons -->
+          <div class="inner-ring"></div>
+          <div class="inner-circle">
+            <div class="simon-title">
+              <p>simon</p>
+            </div>
+            <!-- Start Scoreboard -->
+            <div class="score-container">
+              <p class="off">00</p>
+              <p class="on"></p>
+            </div>
+            <!-- End Scoreboard -->
 
-        <button type="button" class="nextMove" style="position: absolute; top: 200px; left:200px; height: 100px; width: 100px;">Start</button>
+            <!-- Start Button -->
+            <div class="start-container">
+              <div id="start-btn" class="start"></div>
+              <label class="start-label">Start</label>
+            </div>
+
+            <!-- Strict Button -->
+            <div class="strict-container">
+              <div id="strict-btn" class="strict"></div>
+              <label class="strict-label">Strict</label>
+            </div>
+
+            <!-- On/Off Switch -->
+            <div class="switch-container">
+              <p class="off">Off</p>
+              <label class="switch">
+                <input id="on-off-switch" type="checkbox">
+                <div class="slider round"></div>
+              </label>
+              <p class="on">On</p>
+            </div>
+          </div>
+        </div>  
       </div>
     </div>
     
-
-    <script type="text/javascript" src="main.js"></script>
+    
+    <script type="text/javascript" src="js/transition.js"></script>
+    <script type="text/javascript" src="js/eventlisteners.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>

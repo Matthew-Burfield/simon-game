@@ -1,63 +1,265 @@
+@font-face {
+    font-family: digital;
+    src: url(fonts/digital-7.ttf);
+}
 .container {
-  height: 100%;
-  width: 100%;
+  height: 70%;
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.outercircle {
+  position: relative;
+  border-radius: 50%;
+  width: 70%;
+  height: auto;
+  padding-top: 70%;
+  background: white;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#45484d+0,000000+100;Black+3D+%231 */
+  background: #45484d; /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover,  #45484d 0%, #000000 100%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover,  #45484d 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center,  #45484d 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */  
+}
+.green {
+  background-color: #2aff00;
+  border-radius: 100% 0 0 0;
+}
+.red {
+  background-color: #ff0000;
+  border-radius: 0 100% 0 0;
+}
+.yellow {
+  background-color: #fff600;
+  border-radius: 0 0 0 100%;
+}
+.blue {
+  background-color: #0000ff;
+  border-radius: 0 0 100% 0;
+}
+.top {
+  top: 7%;
+}
+.bottom {
+  top: 53%;
+}
+.left {
+  left: 7%;
+}
+.right {
+  left: 53%;
 }
 .game-square {
-  height: 100px;
-  width: 100px;
-  /*position: absolute;*/
+  position: absolute;
+  width: 40%;
+  height: 40%;
 }
 .clickable {
-  cursor: hand;
+  cursor: pointer;
 }
 .current {
-  width: 110px;
-  height: 110px;
-  -webkit-transition-property: width height;
-  -webkit-transition-duration: 0.5s;
-  -webkit-transition-delay: 2s;
-  -webkit-transition-timing-function: linear;
-  transition-property: width height;
-  transition-duration: 0.5s;
-  transition-delay: 0.5s;
-  transition-timing-function: linear;
+  -webkit-animation-name: gameButtonPress;
+          animation-name: gameButtonPress;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
 }
 
-.red {
-  /*background-color: #ff3030;*/
-  background-color: #ff0000;
+@-webkit-keyframes gameButtonPress {
+  0% {
+    
+  }
+  5% {
+    transform: scale(1.2);
+    -moz-box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
-.red-current {
-  background-color: #ff3030;
+@keyframes gameButtonPress {
+  0% {
+    
+  }
+  5% {
+    transform: scale(1.2);
+    -moz-box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
-.yellow {
-  /*background-color: #fffa72;*/
-  background-color: #fff600;
-  left: 120px;
+.inner-ring {
+  position: absolute;
+  top: 23%;
+  left: 23%;
+  width: 54%;
+  height: 54%;
+  border-radius: 100%;
+
+  background: #45484d; /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover,  #45484d 0%, #000000 100%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover,  #45484d 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center,  #45484d 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
-.yellow-current {
-  background-color: #fffa72;
+.inner-circle {
+  position: absolute;
+  top: 28%;
+  left: 28%;
+  width: 44%;
+  height: 44%;
+  background: #DCDCDC;
+  border-radius: 100%;
+}
+.simon-title {
+  position: absolute;
+  left: 18%;
+  top: -13%;
+  font-size: 5vw;
+  font-family: 'Changa One';
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -3px;
+}
+.score-container {
+  position: absolute;
+  height: 25%;
+  width: 38%;
+  background-color: black;
+  top: 35%;
+  left: 29%;
+  border-radius: 15%;
+  border: black 2px solid;
+}
+.score-container p.off, .score-container p.on {
+  font-size: 6.7vw;
+  position: absolute;
+  top: -125%;
+  left: 12%;
+  font-family: digital;
+  width:76%;
+}
+.score-container p.on {
+  color:#fa182a;
+  direction: rtl;
+}
+.score-container p.off {
+  color:#4d4d4d;
+}
+.start, .strict {
+  position: absolute;
+  cursor: pointer;
+  height: 8%;
+  width: 8%;
+  background-color: darkred;
+  border-radius: 50%;
+  top: 63%;
+}
+.start {
+  left: 29%;
+}
+.strict {
+  left: 60%;
+}
+.light-on {
+  background-color: red;
 }
 
-.blue {
-  /*background-color: #4f4fff;*/
-  background-color: #0000ff;
-  left: 240px;
+
+.start-label, .strict-label {
+  position: absolute;
+  font-size: 1.3vw;
+  top: 71%;
+}
+.start-label {
+  left: 27%;
+}
+.strict-label {
+  left: 58%;
 }
 
-.blue-current {
-  background-color: #4f4fff;
-}
+/* On/Off Switch
 
-.green {
-  /*background-color: #92ff7c;*/
-  background-color: #2aff00;
-  left: 360px;
-}
+      /* The switch - the box around the slider */
+      .switch-container {
+        position: absolute;
+        display: inline-block;
+        width: 20%;
+        height: 11%;
+        top: 80%;
+        left: 38%;
+        font-size: 1.3vw;
+      }
 
-.green-current {
-  background-color: #92ff7c;
-}
+      .switch-container p.off {
+        position: absolute;
+        left: -48%;
+        top: -32%;
+      }
+
+      .switch-container p.on {
+        position: absolute;
+        left: 106%;
+        top: -27%;
+      }
+
+      /* Hide default HTML checkbox */
+      .start-container input, .switch input, .strict-container input {display:none;}
+
+      /* The slider */
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 77%;
+        width: 45%;
+        left: 7%;
+        top: 12%;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+
+      input:checked + .slider {
+        background-color: #2196F3;
+      }
+
+      input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+      }
+
+      input:checked + .slider:before {
+        -webkit-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        transform: translateX(100%);
+      }
+
+      /* Rounded sliders */
+      .slider.round {
+        border-radius: 34px;
+      }
+
+      .slider.round:before {
+        border-radius: 50%;
+      }
