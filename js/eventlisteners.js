@@ -4,6 +4,7 @@ const eventListenerModule = (function () {
  
   // var basket = [];
   const gameSquares = document.querySelectorAll('.game-square');
+  const flashDisplay = document.querySelector('.score-container p.off');
   const startBtn = document.getElementById('start-btn');
   const strictBtn = document.getElementById('strict-btn');
  
@@ -51,8 +52,12 @@ const eventListenerModule = (function () {
       strictBtn.classList.remove('light-on');
     },
 
-    addTransitionEndEvent: function(transitionEndHandler) {
-      gameSquares.forEach(gameSquare => gameSquare.addEventListener('animationend', transitionEndHandler));
+    addGameAnimationEndEvents: function(animationEndHandler) {
+      gameSquares.forEach(gameSquare => gameSquare.addEventListener('animationend', animationEndHandler));
+    },
+
+    addErrorAnimationEndEvent: function(animationEventHandler) {
+      flashDisplay.addEventListener('animationend', animationEventHandler);
     }
   };
 })();

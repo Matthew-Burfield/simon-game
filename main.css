@@ -156,6 +156,33 @@
 .score-container p.off {
   color:#4d4d4d;
 }
+.flash-error {
+  -webkit-animation-name: errorFlash;
+          animation-name: errorFlash;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+@-webkit-keyframes errorFlash {
+  0% { color:#4d4d4d; }
+  16% { color:#fa182a; } /* Flash on */
+  32% { color:#4d4d4d; }
+  48% { color:#fa182a; } /* Flash on */
+  64% { color:#4d4d4d; }
+  80% { color:#fa182a; } /* Flash on */
+  100% { color:#4d4d4d; }
+}
+
+@keyframes errorFlash {
+  0% { color:#4d4d4d; }
+  16% { color:#fa182a; } /* Flash on */
+  32% { color:#4d4d4d; }
+  48% { color:#fa182a; } /* Flash on */
+  64% { color:#4d4d4d; }
+  80% { color:#fa182a; } /* Flash on */
+  100% { color:#4d4d4d; }
+}
 .start, .strict {
   position: absolute;
   cursor: pointer;
