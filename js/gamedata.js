@@ -33,21 +33,6 @@ const gameDataModule = (function () {
  
   // Return an object exposed to the public
   return {
- 
-    // // Add items to our basket
-    // addItem: function( values ) {
-    //   basket.push(values);
-    // },
- 
-    // // Get the count of items in the basket
-    // getItemCount: function () {
-    //   return basket.length;
-    // },
- 
-    // Public alias to a private function
-    // doSomething: doSomethingPrivate,
- 
-    // Get the total value of items in the basket
 
     startNewGameIterator: gameArrayIterator,
 
