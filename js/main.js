@@ -28,7 +28,16 @@ function gameReset() {
 }
 
 function playerTurnClick(e) {
-  transitionModule.addTransitionClasses(e.currentTarget);
+  // Error handling needs to go here!
+  let currIterator = gameDataModule.gameIterator.next();
+  if (Number(e.currentTarget.getAttribute('data-key')) === currIterator.value) { 
+    transitionModule.addTransitionClasses(e.currentTarget);
+  } else {
+    // Player has selected the wrong value.
+    document.querySelector('.score-container p.on').innerHTML = '';
+    const flashDisplay = document.querySelector('.score-container p.off');
+    transitionModule.commenceErrorDisplay(flashDisplay);
+  }
 }
 
 function computerSequence() {
@@ -46,19 +55,10 @@ function computerSequence() {
 
 function checkPlayerSequence(e) {
   if (gameDataModule.gameIterator) {
-    let currIterator = gameDataModule.gameIterator.next();
-
-    if (!currIterator.done) { //The iterator isn't done, so check that the item clicked is the right one for the sequence.
-      if (Number(e.currentTarget.getAttribute('data-key')) === currIterator.value) { 
-        if (currIterator.last) {
-          setupComputerTurn(true); // This is the last item in the gameArray; switch back to the computer sequence now.
-        }
-      } else {
-        // Player has selected the wrong value.
-        const flashDisplay = document.querySelector('.score-container p.off');
-        transitionModule.commenceErrorDisplay(flashDisplay);
-      }
-    } // end if (!currIterator.done)
+    const currIterator = gameDataModule.gameIterator.current();
+    if (currIterator.done || currIterator.last) {
+      setupComputerTurn(true); // This is the last item in the gameArray; switch back to the computer sequence now.
+    }
   } // end if(gameInterator) 
 }
 

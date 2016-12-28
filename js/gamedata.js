@@ -22,8 +22,13 @@ const gameDataModule = (function () {
         return nextIndex < gameArray.length ?
           {value: gameArray[nextIndex++], done: false, last: nextIndex === gameArray.length} :
           {done: true};
-        }
-      };
+      },
+      current: function() {
+        return nextIndex < gameArray.length ?
+        {value: gameArray[nextIndex], done: false, last: nextIndex === gameArray.length} :
+        {done: true};
+      }
+    };
   }
  
   // Return an object exposed to the public

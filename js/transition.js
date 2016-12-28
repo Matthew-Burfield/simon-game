@@ -1,7 +1,7 @@
 const transitionModule = (function () {
  
   // privates variables
- 
+  
   // Return an object exposed to the public
   return {
 
@@ -13,11 +13,25 @@ const transitionModule = (function () {
     },
 
     addTransitionClasses: function(el) {
-      el.classList.add('current');
+      const audio = document.querySelector(`audio[data-key="${el.getAttribute('data-key')}"]`);
+      if (!el.classList.contains('current')) {
+        el.classList.add('current');
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play();
+        }
+      }
     },
 
     commenceErrorDisplay: function(el) {
-      el.classList.add('flash-error');
+      const audio = document.getElementById('sound-error');
+      if (!el.classList.contains('flash-error')) {
+        el.classList.add('flash-error');
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play();
+        }
+      }
     },
 
     endErrorDisplay: function(el) {
