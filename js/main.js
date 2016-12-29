@@ -29,6 +29,7 @@ function gameReset() {
 
 function playerTurnClick(e) {
   // Error handling needs to go here!
+  eventListenerModule.turnOffGameSquares(playerTurnClick);
   let currIterator = gameDataModule.gameIterator.next();
   if (Number(e.currentTarget.getAttribute('data-key')) === currIterator.value) { 
     transitionModule.addTransitionClasses(e.currentTarget);
@@ -54,6 +55,7 @@ function computerSequence() {
 }
 
 function checkPlayerSequence(e) {
+  eventListenerModule.turnOnGameSquares(playerTurnClick);
   if (gameDataModule.gameIterator) {
     const currIterator = gameDataModule.gameIterator.current();
     if (currIterator.done || currIterator.last) {
