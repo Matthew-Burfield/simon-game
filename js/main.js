@@ -28,8 +28,9 @@ function gameReset() {
 }
 
 function playerTurnClick(e) {
+  // first we need to end any current animations
+  transitionModule.removeAllAnimationClasses();
   // Error handling needs to go here!
-  eventListenerModule.turnOffGameSquares(playerTurnClick);
   let currIterator = gameDataModule.gameIterator.next();
   if (Number(e.currentTarget.getAttribute('data-key')) === currIterator.value) { 
     transitionModule.addTransitionClasses(e.currentTarget);

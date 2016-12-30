@@ -12,6 +12,17 @@ const transitionModule = (function () {
       void el.offsetWidth;
     },
 
+    removeAllAnimationClasses: function() {
+      const gameSquares = document.querySelectorAll('.game-square');
+      gameSquares.forEach(gameSquare => {
+        gameSquare.classList.remove('current')
+        // // This line is to make the class remove and re-add so the transition will run again
+        void gameSquare.offsetWidth;
+      });
+
+      
+    },
+
     addTransitionClasses: function(el) {
       const audio = document.querySelector(`audio[data-key="${el.getAttribute('data-key')}"]`);
       if (!el.classList.contains('current')) {

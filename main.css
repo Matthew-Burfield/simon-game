@@ -3,7 +3,7 @@
     src: url(fonts/digital-7.ttf);
 }
 .container {
-  height: 70%;
+  height: auto;
   width: 70%;
   margin-right: auto;
   margin-left: auto;
